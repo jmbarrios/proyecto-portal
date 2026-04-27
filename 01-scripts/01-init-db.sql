@@ -1,10 +1,10 @@
 PRAGMA foreign_keys = ON;
 
 -- 1. PLOTS Table
-CREATE TABLE Plots (
-    plot INTEGER PRIMARY KEY, 
+CREATE TABLE IF NOT EXISTS Plots (
     year INTEGER,
     month INTEGER CHECK (month BETWEEN 1 AND 12),
+    plot INTEGER PRIMARY KEY, 
     treatment TEXT,
     resourcetreatment TEXT,
     anttreatment TEXT,
@@ -12,7 +12,7 @@ CREATE TABLE Plots (
 );
 
 -- 2. SPECIES Table
-CREATE TABLE Species (
+CREATE TABLE IF NOT EXISTS Species (
     speciescode TEXT PRIMARY KEY,
     scientificname TEXT,
     taxa TEXT,
@@ -31,7 +31,7 @@ CREATE TABLE Species (
 );
 
 -- 3. NEWMOONDATES Table
-CREATE TABLE NewMoonDates (
+CREATE TABLE IF NOT EXISTS NewMoonDates (
     newmoonnumber INTEGER PRIMARY KEY,
     newmoondate TEXT,
     period INTEGER,
@@ -39,7 +39,7 @@ CREATE TABLE NewMoonDates (
 );
 
 -- 4. SURVEYS Table
-CREATE TABLE Surveys (
+CREATE TABLE IF NOT EXISTS Surveys (
     recordID INTEGER,
     month INTEGER CHECK (month BETWEEN 1 AND 12),
     day INTEGER INTEGER CHECK (day BETWEEN 1 AND 31),
@@ -54,7 +54,7 @@ CREATE TABLE Surveys (
     age TEXT,
     testes TEXT,
     vagina TEXT,
-    pregnant BOOLEAN,
+    pregnant TEXT,
     nipples TEXT,
     lactation TEXT,
     hfl INTEGER,
@@ -69,6 +69,8 @@ CREATE TABLE Surveys (
     neststk INTEGER,
     note4 TEXT,
     note5 TEXT,
+    pit_tag TEXT,
+    id TEXT,
     PRIMARY KEY (recordID),
     FOREIGN KEY (species) REFERENCES Species (speciescode),
     FOREIGN KEY (plot) REFERENCES Plots (plot),
@@ -76,12 +78,12 @@ CREATE TABLE Surveys (
 );
 
 -- 5. TRAPPING Table
-CREATE TABLE Traping (
-    period INTEGER,
-    plot INTEGER,
+CREATE TABLE IF NOT EXISTS Trapping (
     day INTEGER CHECK (day BETWEEN 1 AND 31),
     month INTEGER CHECK (month BETWEEN 1 AND 12),
     year INTEGER,
+    period INTEGER,
+    plot INTEGER,
     sampled INTEGER,
     effort INTEGER,
     qcflag TEXT,

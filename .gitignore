@@ -21,6 +21,13 @@ build/
 00-data/raw/
 00-data/interim/
 00-data/processed/
+*.db
+*.sqlite
+!00-data/raw/moon_dates.csv
+!00-data/raw/Portal_plots.csv
+!00-data/raw/Portal_rodent_species.csv
+!00-data/raw/Portal_rodent_trapping.csv
+!00-data/raw/Portal_rodent.csv
 
 # Reports (figures may be large, but you may want to keep reports; adjust as needed)
 02-reports/figures/
