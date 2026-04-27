@@ -23,6 +23,14 @@ proyecto-portal/
     └── figures/             # 🖼️ gráficos generados
 ```
 
+## Creación de base de datos
+
+Podemos crear la base de datos usando el CLI de sqlite como
+
+```bash
+sqlite3 00-data/portal-data.db < 01-scripts/01-init-db.sql
+```
+
 ## Datos originales
 
 Los datos originales fueron descargados desde: https://zenodo.org/records/19668585

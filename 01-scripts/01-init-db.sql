@@ -1,13 +1,19 @@
 PRAGMA foreign_keys = ON;
 
+CREATE TABLE IF NOT EXISTS Coordinates (
+    plot INTEGER PRIMARY KEY,
+    name TEXT
+);
+
 -- 1. PLOTS Table
 CREATE TABLE IF NOT EXISTS Plots (
     year INTEGER,
     month INTEGER CHECK (month BETWEEN 1 AND 12),
-    plot INTEGER PRIMARY KEY, 
+    plot INTEGER, 
     treatment TEXT,
     resourcetreatment TEXT,
     anttreatment TEXT,
+    FOREIGN KEY (plot) REFERENCES Coordinates (plot),
     UNIQUE (year, month, plot)
 );
 
