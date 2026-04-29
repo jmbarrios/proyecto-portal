@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS Surveys (
     note1 INTEGER,
     stake INTEGER,
     species TEXT,
-    sex TEXT CHECK (sex IN ("M", "F")),
+    sex TEXT,
     reprod TEXT,
     age TEXT,
     testes TEXT,
