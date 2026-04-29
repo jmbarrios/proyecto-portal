@@ -23,6 +23,17 @@ proyecto-portal/
     └── figures/             # 🖼️ gráficos generados
 ```
 
+## Diagrama ER
+
+```mermaid
+erDiagram
+    SURVEYS ||--o{ SPECIES : "species (FK)"
+    SURVEYS ||--|{ PLOTS : "plot (FK)"
+    NEWMOONDATES ||--o{ SURVEYS : "period (FK)"
+    TRAPPING ||--|{ PLOTS : "plot (FK)"
+    PLOTS || -- || COORDINATES: "plot (FK)"
+```
+
 ## Creación de base de datos
 
 Podemos crear la base de datos usando el CLI de sqlite como
