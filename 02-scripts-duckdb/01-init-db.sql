@@ -1,5 +1,3 @@
-PRAGMA foreign_keys = ON;
-
 CREATE TABLE IF NOT EXISTS Coordinates (
     plot INTEGER PRIMARY KEY,
     name TEXT
@@ -28,12 +26,12 @@ CREATE TABLE IF NOT EXISTS Species (
     rodent INTEGER,
     granivore INTEGER,
     minhfl INTEGER CHECK (minhfl > 0),
-    meanhfl REAL,
+    meanhfl DOUBLE,
     maxhfl INTEGER,
     minwgt INTEGER CHECK (minwgt > 0),
-    meanwgt REAL,
+    meanwgt DOUBLE,
     maxwgt INTEGER,
-    juvwgt REAL
+    juvwgt DOUBLE
 );
 
 -- 3. NEWMOONDATES Table
@@ -50,7 +48,7 @@ CREATE TABLE IF NOT EXISTS Surveys (
     month INTEGER CHECK (month BETWEEN 1 AND 12),
     day INTEGER CHECK (day BETWEEN 1 AND 31),
     year INTEGER,
-    period REAL,
+    period INTEGER,
     plot INTEGER,
     note1 INTEGER,
     stake INTEGER,
@@ -79,7 +77,7 @@ CREATE TABLE IF NOT EXISTS Surveys (
     id TEXT,
     PRIMARY KEY (recordID),
     FOREIGN KEY (species) REFERENCES Species (speciescode),
-    FOREIGN KEY (plot) REFERENCES Plots (plot),
+    FOREIGN KEY (plot) REFERENCES Coordinates (plot),
     FOREIGN KEY (period) REFERENCES NewMoonDates (newmoonnumber)
 );
 
@@ -94,7 +92,7 @@ CREATE TABLE IF NOT EXISTS Trapping (
     effort INTEGER,
     qcflag TEXT,
     PRIMARY KEY (period, plot),
-    FOREIGN KEY (plot) REFERENCES Plots (plot)
+    FOREIGN KEY (plot) REFERENCES Coordinates (plot)
 );
 -- No sirve 
 -- ALTER TABLE
