@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS NewMoonDates (
 CREATE TABLE IF NOT EXISTS Surveys (
     recordID INTEGER,
     month INTEGER CHECK (month BETWEEN 1 AND 12),
-    day INTEGER INTEGER CHECK (day BETWEEN 1 AND 31),
+    day INTEGER CHECK (day BETWEEN 1 AND 31),
     year INTEGER,
     period REAL,
     plot INTEGER,
