@@ -10,7 +10,8 @@
 		"ghcr.io/devcontainers-extra/features/curl-apt-get:1": {},
 		"ghcr.io/devcontainers-extra/features/uv:1": {"version": "0.10.12"},
 		"ghcr.io/devcontainers-extra/features/ruff:2": {"version": "0.15.7"},
-		"ghcr.io/rails/devcontainer/features/sqlite3": {}
+		"ghcr.io/rails/devcontainer/features/sqlite3": {},
+		"ghcr.io/eitsupi/devcontainer-features/duckdb-cli:1": {"version": "1.4.4", "extensions": "excel,mysql,sqlite"}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
