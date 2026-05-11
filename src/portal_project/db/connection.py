@@ -6,7 +6,11 @@ class Database:
     """Administrador de bases de datos SQLite"""
     
     def __init__(self, db_path: str) -> None:
-        """Connecta a la base de datos"""
+        """Connecta a la base de datos
+        
+        Args:
+            db_path: Ruta al archivo de la base de datos SQLite
+        """
         self.engine = create_engine(f"sqlite:///{db_path}")
     
     def query(self, sql: str |TextClause, params: dict | None=None) -> pd.DataFrame:
