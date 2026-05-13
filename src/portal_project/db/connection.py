@@ -13,7 +13,7 @@ class Database:
         """
         self.engine = create_engine(f"sqlite:///{db_path}")
     
-    def query(self, sql: str |TextClause, params: dict | None=None) -> pd.DataFrame:
+    def query(self, sql: str |TextClause, params: dict | None = None) -> pd.DataFrame:
         """Ejecuta consultas SELECT
         
         Args:
