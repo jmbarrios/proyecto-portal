@@ -2,7 +2,7 @@
 -- Regresa las diez especies más observadas
 WITH top_10 AS (
     SELECT species 
-    FROM SURVEYS 
+    FROM Surveys 
     GROUP BY species 
     ORDER BY COUNT(*) DESC 
     LIMIT 10
